@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="/static/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>Cpu Meter</title>
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+        
+        html, body {
+            font-family: "Roboto", serif;
+            font-size: 12px;
+            background-color: black;
+            color: white;
+        }
+        </style>
+</head>
+<body>
+    <p>CPU Usage: <span id="cpu_usage">Data Not Found</span>%</p>
+    <progress id="usage" max="100" value="0"></progress>
+
+
+    <script>
+    
+    function fetch_cpu_usage() {
+        $.get('api/cpu', function(data) {
+//            console.log(data);
+            $("#cpu_usage").html(data)
+            $("#usage").val(data)
+        })
+    }
+
+    setInterval(function() {
+        fetch_cpu_usage();
+    },1000);
+
+    </script>
+
+</body>
+</html>
