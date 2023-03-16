@@ -26,4 +26,5 @@ def api():
 
 if __name__ == "__main__":
     #app.run(debug=True)
+#If you want to view the code on github pages, remove  the coment from the code above and comment the code bellow.
     FlaskUI(app=app, server="flask").run()
