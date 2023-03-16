@@ -25,6 +25,6 @@ def api():
     return str(psutil.cpu_percent(interval=0.1))
 
 if __name__ == "__main__":
-    #app.run(debug=True)
+    app.run(debug=True)
 #If you want to view the code on github pages, remove  the comment from line 28 and comment line 30.
-    FlaskUI(app=app, server="flask").run()
+    #FlaskUI(app=app, server="flask").run()
